@@ -8,6 +8,7 @@ StateMachine returns StateMachine:
 	'state-machine'	name=ID 'starts-at' start=[State|QualifiedName] '{'
 		(states+=State)*
 		(transitions+=Transition)*
+		(conditions+=Condition)*
 	'}';
 
 State returns State:
@@ -17,7 +18,7 @@ State returns State:
 
 Transition returns Transition:
 	'transition' name=ID 
-	'dependant on'conditions+=[Condition|QualifiedName] 
+	'dependant on'condition=[Condition|QualifiedName] 
 	source=[State|QualifiedName] '>' target=[State|QualifiedName];
 
 Condition returns Condition:
